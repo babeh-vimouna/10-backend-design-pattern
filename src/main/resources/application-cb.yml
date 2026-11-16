@@ -1,0 +1,9 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      gateway:                        # = name di @CircuitBreaker
+        slidingWindowSize: 10         # nilai dari 10 panggilan terakhir
+        minimumNumberOfCalls: 5       # baru dinilai setelah 5 panggilan
+        failureRateThreshold: 50      # OPEN jika gagal >= 50%
+        waitDurationInOpenState: 10s  # tunggu, lalu HALF-OPEN
+        permittedNumberOfCallsInHalfOpenState: 3  # request uji
